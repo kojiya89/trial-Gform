@@ -1,4 +1,29 @@
-<form id="test-form">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM</title>
+  
+  <script>
+    var $form = $('form#test-form'),
+    url = 'https://script.google.com/macros/s/AKfycbyucvVfBYJVSJmjH6fwws_9x_vbcslJ_Z3NoRdx0MDol67gz8Jo/exec'
+
+$('#submit-form').on('click', function(e) {
+  e.preventDefault();
+  var jqxhr = $.ajax({
+    url: url,
+    method: "GET",
+    dataType: "json",
+    data: $form.serializeObject()
+  }).success(
+    // do something
+  );
+})
+  </script>
+</head>
+<body>
+    <form id="test-form">
   
   <div>
     <label>Field 1</label>
@@ -25,3 +50,7 @@
   </div>
 
 </form>
+
+</body>
+</html>
+
